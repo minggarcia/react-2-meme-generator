@@ -1,0 +1,123 @@
+// import { useEffect, useState } from 'react';
+
+// export default function MemeGenerator() {
+//   function MemeTemplates() {
+//     // Create Component for fetching templates:
+//     const [data, setData] = useState([]);
+//     const [customUrl, setCustomUrl] = useState(
+//       'https://i.imgflip.com/26am.jpg',
+//     );
+//     useEffect(() => {
+//       const fetchData = async () => {
+//         try {
+//           const response = await fetch('https://api.memegen.link/templates/');
+//           const json = await response.json();
+//           setData(json);
+//         } catch (e) {
+//           console.error(e);
+//         }
+//       };
+//       fetchData().catch((err) => {
+//         console.error(err);
+//       });
+//     }, []);
+//   }
+
+//   // Set input for top and bottom text:
+//   const [inputText, setInputText] = useState({
+//     topText: '',
+//     bottomText: '',
+//   });
+//   // Show random image:
+//   const [randomImage, setRandomImage] = useState(
+//     'https://i.imgflip.com/26am.jpg',
+//   );
+//   // Get all memes:
+//   const [allMemeImages, setAllMemeImages] = useState([]);
+//   const handleChange = (e) => {
+//     setInputText({
+//       ...inputText,
+//       [e.target.name]: e.target.value,
+//     });
+//   };
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     console.log('submitted');
+//   };
+
+//   return (
+//     <div className="meme-container">
+//       <form onSubmit={handleSubmit}>
+//         <label>
+//           Top Text:
+//           <input
+//             name="topText"
+//             value={inputText.topText}
+//             onChange={handleChange}
+//           />
+//         </label>
+//         <label>
+//           Bottom Text:
+//           <input
+//             name="bottomText"
+//             value={inputText.BottomText}
+//             onChange={handleChange}
+//           />
+//         </label>
+//       </form>
+//       <div className="meme">
+//         <h2 className="top">{inputText.topText}</h2>
+//         <img src={randomImage} alt="black" />
+
+//         <h2 className="bottom">{inputText.bottomText}</h2>
+//       </div>
+//     </div>
+//   );
+// }
+
+// // export default function InputForTopAndBottomText() {
+// //   const [topText, setTopText] = useState('');
+// //   const [bottomText, setBottomText] = useState('');
+
+// //   return (
+// //     <div>
+// //       <form>
+// //         <label>
+// //           Top Text:
+// //           <input
+// //             onChange={(e) => {
+// //               setTopText(e.currentTarget.value);
+// //             }}
+// //             value={topText}
+// //           />
+// //         </label>
+// //         <label>
+// //           Bottom Text:
+// //           <input
+// //             onChange={(e) => {
+// //               setBottomText(e.currentTarget.value);
+// //             }}
+// //             value={bottomText}
+// //           />
+// //         </label>
+// //       </form>
+// //       <div
+// //         id="meme-image"
+// //         className="previewMeme"
+// //         style={{ border: 'solid black 3px ', margin: '50px', padding: '50px' }}
+// //       >
+// //         <img
+// //           src="https://wallpaperaccess.com/full/1397755.jpg"
+// //           alt="back-img"
+// //           style={{ width: '500px', alignItems: 'center' }}
+// //         />
+// //         <h2 className="=top" style={{ color: 'black' }}>
+// //           {topText}
+// //         </h2>
+// //         <h2 className="bottom" style={{ color: 'black' }}>
+// //           {bottomText}
+// //         </h2>
+// //       </div>
+// //     </div>
+// //   );
+// // }
