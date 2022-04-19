@@ -1,3 +1,4 @@
+import { saveAs } from 'file-saver';
 import { useEffect, useState } from 'react';
 
 export default function MemeGenerator() {
@@ -88,8 +89,6 @@ export default function MemeGenerator() {
       </label>
       <div css={url}>
         <img
-          width="200px"
-          height="200px"
           data-test-id="meme-image"
           src={`https://api.memegen.link/images/${memeImage}/${topText}/${bottomText}.jpg`}
           alt="meme"
