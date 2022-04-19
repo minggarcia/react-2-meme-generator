@@ -1,5 +1,8 @@
 // import { useEffect, useState } from 'react';
 
+import { useEffect, useState } from 'react';
+import TopAndBottomInput from './TopAndBottomInput';
+
 // export default function MemeGenerator() {
 // const [templates, setTemplates] = useState([])
 
@@ -16,7 +19,8 @@
 // //         const memes = res.data.memes;
 // //         setMemes(memes);
 // //       })
-
+// //       .catch((err) => {
+// //         console.error(err);
 // //       }),
 // //   );
 // // }, []);
@@ -30,3 +34,30 @@
 // useEffect(() => {
 //   fetchMemes();
 // }, []);
+
+export default function MemeGenerator() {
+  const [template, setTemplate] = useState([]);
+
+  // fetch all templates api
+
+  useEffect(() => {
+    const templateToFetch = async () => {
+      try {
+        const response = await fetch('https://api.memegen.link/templates/');
+        const json = await response.json();
+        setTemplate(json);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    templateToFetch().catch((error) => {
+      console.error(error);
+    });
+  }, []);
+  return (
+    <div>
+      <h1>Meme Generator</h1>
+      <TopAndBottomInput />
+    </div>
+  );
+}
