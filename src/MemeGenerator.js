@@ -1,11 +1,11 @@
-import { saveAs } from 'file-saver';
+import './App.css';
 import { useEffect, useState } from 'react';
 
 export default function MemeGenerator() {
   const [template, setTemplate] = useState([]);
   const [memeImage, setMemeImage] = useState('');
-  const [topText, setTopText] = useState('top text');
-  const [bottomText, setBottomText] = useState('bottom text');
+  const [topText, setTopText] = useState('');
+  const [bottomText, setBottomText] = useState('');
   const [url, setUrl] = useState('https://api.memegen.link/images/ds.png');
 
   // fetch all templates api
@@ -44,11 +44,11 @@ export default function MemeGenerator() {
   }
   return (
     <div>
-      <h1>Meme Generator</h1>
+      <h1 className="h1Style">Meme Generator</h1>
       <div>
-        <div>
+        <div className="inputContainer">
           <label>
-            Top Text:
+            Top Text
             <br />
             <input
               onChange={(event) => {
@@ -60,7 +60,7 @@ export default function MemeGenerator() {
           <br />
           <div>
             <label>
-              Bottom Text:
+              Bottom Text
               <br />
               <input
                 onChange={(event) => {
@@ -72,23 +72,25 @@ export default function MemeGenerator() {
           </div>
         </div>
       </div>
-
-      <label>
-        Meme Templates
-        <select
-          onChange={(event) => {
-            setMemeImage(event.currentTarget.value);
-          }}
-        >
-          {template.map((id) => (
-            <option key={id} value={id}>
-              {id}
-            </option>
-          ))}
-        </select>
-      </label>
+      <div className="templateInput">
+        <label>
+          Meme Templates
+          <select
+            onChange={(event) => {
+              setMemeImage(event.currentTarget.value);
+            }}
+          >
+            {template.map((id) => (
+              <option key={id} value={id}>
+                {id}
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
       <div css={url}>
         <img
+          className="imageStyle"
           data-test-id="meme-image"
           src={`https://api.memegen.link/images/${memeImage}/${topText}/${bottomText}.jpg`}
           alt="meme"
