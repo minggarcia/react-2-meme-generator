@@ -72,25 +72,23 @@ export default function MemeGenerator() {
           </div>
         </div>
       </div>
-      <div className="templateInput">
-        <label>
-          Meme Templates
-          <select
-            onChange={(event) => {
-              setMemeImage(event.currentTarget.value);
-            }}
-          >
-            {template.map((id) => (
-              <option key={id} value={id}>
-                {id}
-              </option>
-            ))}
-          </select>
-        </label>
-      </div>
+
+      <label>
+        Meme Templates
+        <select
+          onChange={(event) => {
+            setMemeImage(event.currentTarget.value);
+          }}
+        >
+          {template.map((id) => (
+            <option key={id} value={id}>
+              {id}
+            </option>
+          ))}
+        </select>
+      </label>
       <div css={url}>
         <img
-          className="imageStyle"
           data-test-id="meme-image"
           src={`https://api.memegen.link/images/${memeImage}/${topText}/${bottomText}.jpg`}
           alt="meme"
